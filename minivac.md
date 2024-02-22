@@ -132,7 +132,9 @@ Add launcher keybinding to add in <keyboard></keyboard> as well
 `ssh-keygen -t rsa -C "***@gmail.com"`
 - la copier (sinon elle est dans ~/.ssh/id_rsa.pub)
 - se connecter au compte github et rajouter la clef (>settings>sshkeys)
-
+- generer un token classic dans github
+- ensuite c'est git add * / git commit -m "msg" / git push -u origin main
 
 ## To do
 - setup lightdm ? (la je log direct)
+- setup git pour pas retaper le token chaque fois
