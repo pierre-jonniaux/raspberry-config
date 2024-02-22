@@ -13,6 +13,7 @@
 - nitrogen (pour les wallpaper)
 - lightdm (gestionnaire de session at startup)
 - xcompmgr (transparence)
+- pulseaudio, pulseaudio-utils, pulseaudio-module-jack, pmixer (son)
 
 ## Applications
 
@@ -131,6 +132,7 @@ Add launcher keybinding to add in <keyboard></keyboard> as well
 `ssh-keygen -t rsa -C "***@gmail.com"`
 - la copier (sinon elle est dans ~/.ssh/id_rsa.pub)
 - se connecter au compte github et rajouter la clef (>settings>sshkeys)
+
 
 ## To do
 - setup lightdm ? (la je log direct)
