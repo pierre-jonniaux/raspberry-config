@@ -4,7 +4,6 @@
 
 - raspberry debian os lite 64 gb with imager
 - setup internet and login in imager before burning the sd
-
 ## Desktop
 
 - sudo apt install --no-install-recommends xserver-xorg xinit x11-xserver-utils
@@ -13,7 +12,9 @@
 - nitrogen (pour les wallpaper)
 - lightdm (gestionnaire de session at startup)
 - xcompmgr (transparence)
-- pulseaudio, pulseaudio-utils, pulseaudio-module-jack, pmixer (son)
+- pulseaudio, pulseaudio-utils, pulseaudio-module-jack (son)
+- pavucontrol (GUI) ou  pamix (shell) (mixer)
+- ibus, ibus-anthy, fonts-vlgothic, fonts-ipafonts (jp)
 
 ## Applications
 
@@ -22,6 +23,7 @@
 - netsurf-gtk (pourri mais supra leger)
 - micro (super mais super leger)
 - chromium (finalement un des plus leger/rapide)
+- carbonyl pour naviguer dans le terminal
 
 ## Config
 
@@ -41,6 +43,11 @@ sudo reboot
 
 ### Wifi
 - raspi-config system>network pour rajouter d'autre wifi
+
+### son
+- on rajoute pulseaudio (alsa seul trop limite) et pamixer pour controler depuis un shell
+- dans pamixer s pour changer de sortie (jack<->hdmi) et les fleches G/D pour le volume
+- pavuaudio pour une version gui de pamixer
 
 ### Path
 Setup le path vers home/bin dans home/.bashrc
@@ -120,6 +127,7 @@ Add launcher keybinding to add in <keyboard></keyboard> as well
 
 ### Terminator
 - disable keybinding to ctrl-shift-arrow qui interfere avec la selection de texte dans micro
+- dans profile je disable "show title bar", background sur transparent
 
 ### Micro
 - copie maline :ajoute la selection copie du mot en cours sur ctrl-space (Ctrl-e pour passer en commande)
@@ -136,6 +144,30 @@ Add launcher keybinding to add in <keyboard></keyboard> as well
 - generer un token classic dans github
 - ensuite c'est git add * / git commit -m "msg" / git push -u origin main
 
+### Japonais
+- ajouter ibus et les polices (cf plus haut)
+- ajouter la locale jp 
+`sudo dpkg-reconfigure locales`
+- si ca marche pas avec dpkg tripatouiller dans etc/local-gen 
+- locales -a affiche les locales dispo, verifier si l'ajout a marche
+- sinon localectl aussi est utile notamment pour list et set
+`localectl list-locales`
+`localectl set-locale LANG=en_GB.UTF-8`
+- parametrer ibus 
+`ibus-setup`
+- demmarage auto, rajouter dans ~/.bashrc
+```
+# Ibus start with openbox
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+```
+
+
 ## To do
 - setup lightdm ? (la je log direct)
-- setup git pour pas retaper le token chaque fois
+
+
+
+
+
